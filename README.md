@@ -18,7 +18,7 @@ There are two [PCIE4](https://docs.xilinx.com/r/en-US/pg213-pcie4-ultrascale-plu
 
 # PCB Layout
 
-All differential pairs are length-matched to within 1mm intra-pair (N-to-P) and each group of differential pairs (e.g., TX0-to-TX4) is similarly matched to within 1mm.
+All differential pairs are length-matched to within 1mm intra-pair (N-to-P) and each group of differential pairs (e.g., TX0-to-TX3) is similarly matched to within 1mm.
 
 ![OpenCAPI to PCIe Host and Endpoint PCB Layout](img/OpenCAPI_PCIe_x4_Host_and_Endpoint_PCB_Layout.png)
 
