@@ -1,4 +1,4 @@
-**Work-In-Progress**: [Gerbers ready but not yet ordered](https://github.com/mwrnd/OpenCAPI-to-PCIe_x4_Host_and_Endpoint/releases/tag/v0.1-alpha).
+**Work-In-Progress**: Design being tested.
 
 
 
@@ -7,16 +7,42 @@
 
 Designed to test simultaneous PCIe Host and Endpoint operation with the Innova-2.
 
+![OpenCAPI to PCIe x4 Host and Endpoint Adapter](img/OpenCAPI_to_PCIe_x4_Host_Endpoint.jpg)
+
 There are two [PCIE4](https://docs.xilinx.com/r/en-US/pg213-pcie4-ultrascale-plus/Introduction) blocks in the column of the Innova-2's OpenCAPI Quads.
 
 ![Innova-2 OpenCAPI Banks](img/Innova2_OpenCAPI_XCKU15P_FFVE1517_Banks.png)
+
+The GTY Transceivers connected to the OpenCAPI Connector are in a column that does not contain the Configuration Block so it is impossible for the FPGA to be programmed within the [100ms PCIe power-up time limit](https://pcisig.com/specifications/ecr_ecn_process?speclib=100+ms). Motherboard boot must be delayed to allow the FPGA to configure itself before PCIe devices are enumerated. This can be accomplished by toggling the POWER button, then pressing and holding the RESET button for a second before releasing it. Or, [connect a capacitor across the reset pins of an ATX motherboard's Front Panel Header](https://github.com/mwrnd/ATX_Boot_Delay).
+
+![Delay Boot Using Front Panel Header Capacitor](img/Delay_Boot_Using_FrontPanelHeader_Capacitor.jpg)
 
 [OpenCAPI](https://files.openpower.foundation/s/xSQPe6ypoakKQdq/download/25Gbps-spec-20171108.pdf)-compatible SlimSAS 8x uses a **Host** version of the OpenCAPI **Carrier** pinout from the [ADM-PCIE-9V5 User Manual (Pg15-19of38)](https://www.alpha-data.com/xml/user_manuals/adm-pcie-9v5%20user%20manual_v1_4.pdf).
 
 
 
 
-# PCB Layout
+## Testing
+
+![OpenCAPI to PCIe x4 Host and Endpoint in a System](img/OpenCAPI_to_PCIe_x4_Host_Endpoint_In-System.jpg)
+
+```
+TODO
+```
+
+
+
+
+### OpenCAPI I2C
+
+The [innova2_xdma_opencapi](https://github.com/mwrnd/innova2_xdma_opencapi) project includes the ability to test I2C.
+
+![Testing I2C using TC74](img/TC74_in_OpenCAPI-to-PCIe_x4.jpg)
+
+
+
+
+## PCB Layout
 
 All differential pairs are length-matched to within 1mm intra-pair (N-to-P) and each group of differential pairs (e.g., TX0-to-TX3) is similarly matched to within 1mm.
 
@@ -25,14 +51,14 @@ All differential pairs are length-matched to within 1mm intra-pair (N-to-P) and 
 
 
 
-# Schematic
+## Schematic
 
 ![OpenCAPI to PCIe Host and Endpoint Schematic](img/OpenCAPI_PCIe_x4_Host_and_Endpoint_Schematic.png)
 
 
 
 
-# Bill Of Materials
+## Bill Of Materials
 
 | Designator(s) | Part Number             | Quantity | Value      | Footprint                           | Availability                                                                                               |
 | ------------- | ----------------------- | -------- | ---------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------- |
@@ -57,8 +83,16 @@ All differential pairs are length-matched to within 1mm intra-pair (N-to-P) and 
 
 
 
+## Assembly Notes
 
-# PCB Layer Stackup
+Use needle-nosed pliers to remove the PCIe x4 Connector's mounting post.
+
+![Remove PCIe x4 CONNECTOR Mounting Post](img/PCIe_x4_CONN_Remove_Mounting_Post.jpg)
+
+
+
+
+## PCB Layer Stackup
 
 4-Layer PCB stackup taken from [JLCPCB](https://jlcpcb.com/capabilities/pcb-capabilities).
 
