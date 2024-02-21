@@ -83,11 +83,14 @@ All differential pairs are length-matched to within 1mm intra-pair (N-to-P) and 
 
 
 
+
 ## Assembly Notes
 
 Use needle-nosed pliers to remove the PCIe x4 Connector's mounting post.
 
 ![Remove PCIe x4 CONNECTOR Mounting Post](img/PCIe_x4_CONN_Remove_Mounting_Post.jpg)
+
+Three wire jumpers are needed to connect `3V3==3V3_PCIe`, `nPERST==RST`, and `nPRSNT1==nPRSNT2_x4`.
 
 
 
